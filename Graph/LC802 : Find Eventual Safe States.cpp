@@ -12,6 +12,13 @@ If we encounter a node that is currently being visited (color 1), this means the
 We continue this process for all nodes, and those that end up marked as color 2 (ie. is safe), are added to our final list of safe nodes.
 
 This approach ensures that we are only considering nodes that lead to terminal nodes as safe, effectively implementing a topological sort, which is suitable for such dependency-based problems.
+
+TC: O(N + E)
+SC: O(N)
+
+Company Tag: Google, Facebook, and Amazon 
+
+
 */
 
 class Solution 
