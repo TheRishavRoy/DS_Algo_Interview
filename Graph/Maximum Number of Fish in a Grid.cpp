@@ -4,7 +4,6 @@ public:
         int numRows = grid.size();
         int numCols = grid[0].size();
         int maxFishCount = 0;
-
         // Iterate over each cell in the grid.
         for (int i = 0; i < numRows; ++i) 
         {
