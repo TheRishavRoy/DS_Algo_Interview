@@ -3,7 +3,6 @@ public:
     
     bool isPrefixAndSuffix(string &check, string &str) {
         int n = check.length();
-
         //You can use fine() function as well
         //Extracts a prefix (s1) and suffix (s2) of length check.length() from s.
         string sub1 = str.substr(0, n);//starting at 0
