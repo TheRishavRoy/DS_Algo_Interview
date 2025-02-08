@@ -1,13 +1,15 @@
-class NumberContainers {
+class NumberContainers 
+{
 public:
+    
     unordered_map<int,int> indexToNumber;//for a given index we may have to update number
-    unordered_map<int, set<int>> numberToIndices;  // Maps number -> sorted indices (to find the smallest index easily)
+    unordered_map<int, set<int>> numberToIndices;  // Maps number -> sorted indices (to find the smallest index easily)    
     
     NumberContainers() {
-        
     }
     
-    void change(int index, int number) {
+    void change(int index, int number) 
+    {
         //we have to handle the case where the old number is now invalid
         if (indexToNumber.count(index)) //if index was already associated to a number
         {
