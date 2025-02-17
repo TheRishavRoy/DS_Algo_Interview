@@ -1,6 +1,6 @@
-//T.C : O(n!)
+//T.C : O(n!)//since there are n numbers, each with potential positions to place.
 //S.C : O(n)
-//using backtracking
+//Using backtracking
 class Solution {
 public:
 
