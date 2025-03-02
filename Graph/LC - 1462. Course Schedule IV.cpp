@@ -53,6 +53,7 @@ public:
                 isPrerequisite[current][adjacentCourse] = true;
               
                 // Mark all the prerequisites of current as prerequisites of adjacentCourse as well.
+                //Just transferring the values from current to adjacent_cource
                 for (int k = 0; k < numCourses; k++) 
                 {
                     //If k is a prerequisite of current, then k is also a prerequisite of adjacentCourse.
