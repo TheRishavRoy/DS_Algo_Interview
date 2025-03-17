@@ -6,7 +6,9 @@ public:
 
         for (int candy : candies) //Loops through candies[] and counts how many children can be satisfied
         {
-            childrenCount += (candy / mid); // How many children can be satisfied from added piles so far by giving "mid" candies to each child
+            childrenCount += (candy / mid); // How many children can be satisfied from this pile  by giving "mid" candies to each child.
+            //since we cannot give one child candie from more than one pile
+            //NOTE: For each pile we get childrenCount to check if it satisfies : childrenCount >= k
             if (childrenCount >= k) //if k children can be satiesfied this could be our answer (~return early since we already got answer)
                 return true; // so return true, we can distribute among >=k children
         }
