@@ -5,12 +5,12 @@ class Solution {
     vector<pair<int, int>> xs;
     vector<pair<int, int>> ys;
 
-    for (vector<int> rectangles : rectangles) 
+    for (vector<int> rectangle : rectangles) 
     {
-      int startX = rectangles[0];
-      int startY = rectangles[1];
-      int endX = rectangles[2];
-      int endY = rectangles[3];
+      int startX = rectangle[0];
+      int startY = rectangle[1];
+      int endX = rectangle[2];
+      int endY = rectangle[3];
       xs.emplace_back(startX, endX);
       ys.emplace_back(startY, endY);
     }
