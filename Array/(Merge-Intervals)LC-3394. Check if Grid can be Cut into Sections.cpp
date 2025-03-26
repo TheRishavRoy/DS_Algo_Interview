@@ -5,7 +5,7 @@ class Solution {
     vector<pair<int, int>> xs;
     vector<pair<int, int>> ys;
 
-    for (const vector<int> rectangles : rectangles) 
+    for (vector<int> rectangles : rectangles) 
     {
       int startX = rectangles[0];
       int startY = rectangles[1];
