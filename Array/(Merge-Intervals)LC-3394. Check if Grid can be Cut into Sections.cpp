@@ -31,7 +31,7 @@ class Solution {
       {
         prevEnd = max(prevEnd, end);//extend previous interval's end to new interval's end
       } 
-      else //non - overlapping
+      else //non - overlapping , and since non-overlapping rectangles can share boundary strt==prevEnd will also be NON-Overlapping case
       {
         prevEnd = end;//update new prevEnd
         ++uniqueCount;//uniqueCount increase
