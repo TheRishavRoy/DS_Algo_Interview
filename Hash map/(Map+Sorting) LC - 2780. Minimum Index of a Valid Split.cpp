@@ -17,7 +17,8 @@ public:
                 maxFreq = freq;
             }
         }
-
+        //Initializing leftCount to 0 and we keep increasing it as sson as we see Dominent element, because we are putting it into left
+        //Initializing leftCount to maxFreq and we keep decreasing it as sson as we see Dominent element, because we are putting it away from right into left
         int leftCount = 0, rightCount = maxFreq;
 
         // Try to find the minimum valid split index
