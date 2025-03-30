@@ -16,6 +16,10 @@ public:
         for(int i=0 ; i<n ; i++)
         {
             int val=nums[i];
+            /*
+            If j-i == nums[j]-nums[i]
+            Then : nums[j]-j == nums[i]-i
+            */
             int key=val-i;
             if(mp.count(key)!=0)
             {
