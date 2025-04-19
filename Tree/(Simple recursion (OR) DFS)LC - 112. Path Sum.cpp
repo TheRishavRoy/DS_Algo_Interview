@@ -32,6 +32,7 @@ public:
         return hasPathSum(root->left,targetSum-(root->val))||hasPathSum(root->right,targetSum-(root->val));    
     }
 };
+
 //======================================================================================================================
 /*Approach 2:
 1. Call DFS on the root node,cuurentSum,targetSum
