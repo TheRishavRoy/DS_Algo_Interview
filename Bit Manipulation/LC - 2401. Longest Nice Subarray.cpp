@@ -8,6 +8,10 @@ public:
         //use sliding window and two pointers left,right:
         for (int right = 0; right < n; ++right) {
             // If nums[right] conflicts with the existing bitmask
+            /*
+            KEY CONCEPT:
+                It means that some bit in nums[right] is already set in the current window — i.e., an earlier element (from left to right - 1) already claimed that bit.
+            */
             while ((bitmask & nums[right]) != 0 )//We should check if any bit in bitmask and nums[right] overlaps (i.e., bitmask & nums[right] != 0).
             {
                 //If bitmask has a bit set that was contributed by nums[left], XOR removes it.
