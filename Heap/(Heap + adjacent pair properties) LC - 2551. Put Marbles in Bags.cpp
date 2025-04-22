@@ -21,7 +21,13 @@ public:
         {
             pairSum.push_back(weights[i] + weights[i + 1]);
         }
-
+        
+        /* NOTE:
+        We only use adjacent pairs beacuse we want to minimize and maximize weights[i] + weights[i+1]
+        This is only possible if we take adjacent pairs
+        Therefore using heap we pick k-1 cuts out of n-1 cut.*/
+        
+        
         //We focus on the sum of adjacent pairs in the array (weights[i] + weights[i+1]) because splitting into k parts means we pick k-1 splits.
         // Step 2: Use heaps to find min & max `k-1` sums
         priority_queue<int> maxHeap(pairSum.begin(), pairSum.end()); // Max heap
