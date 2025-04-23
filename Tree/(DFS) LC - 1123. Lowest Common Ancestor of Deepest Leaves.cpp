@@ -34,7 +34,12 @@ private:
 
         auto left=dfs(node->left);
         auto right=dfs(node->right);
-
+        /*
+        NOTE: we are finding : 
+        - The lowest node that connects all deepest leaves.
+        - This node might not be present at depth d-1 ; where d is the depth of depest node(leaf)
+        - In case of complete binary tree this node will be the Root, Since root is the only node that connects all the deepest leaves
+        */
         if(left.second>right.second)
             return {left.first,left.second+1};//we propagate the left leaf upwards since it is deeper
         else if(right.second>left.second)
