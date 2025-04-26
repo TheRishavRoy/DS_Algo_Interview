@@ -4,8 +4,9 @@ public:
     {
         int left = 0;//min
         int right = *max_element(nums.begin(), nums.end());//max
-
-        while (left < right) 
+        int result = right; // Initialize result to the maximum possible value
+        
+        while (left < right) //Use < when minimizing (to stop as soon as left == right is found)
         {
             int mid = (left + right) >> 1;//int mid = (left + right) / 2;
             if (isCapable(nums, k, mid)) 
@@ -18,6 +19,9 @@ public:
                 left = mid + 1; // Increase capability requirement
             }
         }
+        //In this approach, the while loop continues as long as left < right. 
+        //When the loop terminates, 
+        //left will be equal to right, and this value represents the minimum capability found.
         return left;
     }
 
@@ -35,6 +39,8 @@ private:
                 continue;
             }
             ++count;// Increment the count of houses robbed
+            if(count >= k)
+                return true;//early return
             prevIndex = i;// Update the index of the last robbed house
         }
         return count >= k;
