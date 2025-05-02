@@ -1,8 +1,7 @@
 class Solution {
 public:
     // Define directions for exploring adjacent cells: up, right, down, left.
-    const vector<int> dirs{-1, 0, 1, 0, -1};//vector is storing number in this pattern to compensate for 4 itrative values of dirs[i]
-    //and dirs[i+1]: -1,0 -> 0,1 -> 1,0 -> 0,-1 for i=0 t0 i=3.
+    const vector<vector<int>> directions {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
 
     // Function to calculate the highest peak elevation for each cell.
     vector<vector<int>> highestPeak(vector<vector<int>>& isWater) 
@@ -40,10 +39,10 @@ public:
                 int j = p.second;
             */  
             q.pop();
-            for (int idx = 0; idx < 4; idx++) // Explore all 4 adjacent cells.
+            for (const auto& direction : directions) // Explore all 4 adjacent cells.
             { 
-                int x = i + dirs[idx];    // Calculate the new x-coordinate.
-                int y = j + dirs[idx + 1];// Calculate the new y-coordinate.
+                int x = i + direction[0];    // Calculate the new x-coordinate.
+                int y = j + direction[1];// Calculate the new y-coordinate.
                 // Check if the new coordinates are in bounds and the cell is not yet visited.
                 if (x >= 0 && x < m && y >= 0 && y < n && ans[x][y] == -1) 
                 {
