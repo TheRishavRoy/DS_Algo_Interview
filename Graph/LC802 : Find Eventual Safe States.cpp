@@ -28,7 +28,7 @@ public:
     vector<int> eventualSafeNodes(vector<vector<int>>& graph) 
     {
         int n = graph.size();//number of nodes
-        colors.assign(n, 0); // Initialize all nodes as unvisited
+        colors.resize(n, 0); // Initialize all nodes as unvisited
         vector<int> safeNodes; // List to hold the eventual safe nodes
 
         // Check each node to see if it's eventually safe
@@ -48,6 +48,8 @@ public:
     {
         if (colors[nodeIndex]) 
         {
+            //If it was marked as 1 (currently visiting, indicating a cycle), 
+            //It means this path leads to a cycle
             // If the node has been visited already, return true only if it's marked as safe
             return colors[nodeIndex] == 2;
         }
@@ -62,7 +64,9 @@ public:
                 return false;
             }
         }
-
+        
+        //If the loop completes without finding any unsafe neighbors, 
+        //it means all paths from the current nodeIndex lead to safe nodes or terminal nodes.
         colors[nodeIndex] = 2; // Mark the node as safe
         return true; // Return true as the node is safe
     }
