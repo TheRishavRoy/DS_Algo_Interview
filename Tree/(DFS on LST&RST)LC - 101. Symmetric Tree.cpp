@@ -1,3 +1,12 @@
+/*
+Given the root of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).
+
+                                         1
+										/ \
+									   2   2
+									  /\   /\
+									 3  4 4  3
+*/
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -15,15 +24,17 @@ public:
         return dfs(root->left,root->right);
     }
 private:
-    bool dfs(TreeNode* root1,TreeNode*root2)
+    bool dfs(TreeNode* leftNode,TreeNode* rightNode)
     {
-        if(!root1 && !root2)
+        if(!leftNode && !rightNode)
             return true;
-        if(!root1 || !root2)
-            return false;
-        if(root1->val!=root2->val)
+
+        if(!leftNode || !rightNode)
             return false;
 
-        return dfs(root1->left,root2->right)&&dfs(root1->right,root2->left);
+        if(leftNode->val!=rightNode->val)
+            return false;
+
+        return dfs(leftNode->left,rightNode->right)&&dfs(leftNode->right,rightNode->left);
     }
 };
