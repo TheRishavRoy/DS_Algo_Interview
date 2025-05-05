@@ -1,4 +1,42 @@
 /*
+Approach 1: (Iterative)
+T.C.: O(N) . N= size of array
+*/
+class Solution {
+public:
+    int longestMonotonicSubarray(vector<int>& nums) {
+        if (nums.empty())
+            return 0;
+        
+        int n = nums.size();
+        int maxLen = 1;
+        int incLen = 1;
+        int decLen = 1;
+
+        for (int i = 1; i < n; ++i) 
+        {
+            if (nums[i] > nums[i - 1]) 
+            {
+                incLen++;
+                decLen = 1;//reset decLen
+            } 
+            else if (nums[i] < nums[i - 1]) 
+            {
+                decLen++;
+                incLen = 1;//reset incLen
+            } 
+            else 
+            {
+                incLen = 1;//reset both
+                decLen = 1;
+            }
+            maxLen = max(maxLen, max(incLen, decLen));//update max
+        }
+        return maxLen;
+    }
+};
+/*
+Approach 2: (Recursive)
 The idea here is to start from array idx=0  and initialize maxLen=1
 Now we parse fron idx=1 to idx=n-1 using recursion with ahelper function, and keep updating the incLen and decLen, while keeping track of maxLen found so far.
 We reset the counters whenever strictly inc or dec is violated.
