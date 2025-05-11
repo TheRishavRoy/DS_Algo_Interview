@@ -27,8 +27,9 @@ public:
         long long minSum2 = sum2 + numZero2;
         //same goes for min sum that will be required for second sum
 
-        if (numZero1 == 0 && sum1 < minSum2) {
-            return -1;
+        if (numZero1 == 0 && sum1 < minSum2) //if there is no Zero left in 1st array, but its sum1 is less than minSum2 of Array2 
+        {
+            return -1;//we don't have any zero left to convert so that we can get to minSum2
         }
         if (numZero2 == 0 && sum2 < minSum1) {
             return -1;
