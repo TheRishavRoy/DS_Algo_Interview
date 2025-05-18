@@ -15,6 +15,7 @@ public:
             while(!dq.empty() && dq.front()<=i-k)//i-k is the start of the window
             {
                 //anything outside the start of the window i.e. i-k should be removed
+                //should only apply when i >= k - 1, ensuring we have a valid window size.
                 dq.pop_front();
             }
             //while the nums[index_in_dq] of indices at the back of dq is < nums[i]
