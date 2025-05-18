@@ -31,43 +31,37 @@ struct TreeNode
 class MorrisTraversal
 {
 public:
-    std::vector<int> inorderTraversal(TreeNode* root)
+    vector<int> inorderTraversal(TreeNode *root)
     {
-        std::vector<int> nodeVals;
-        TreeNode* cur = root;
-        TreeNode* LSTpointer = nullptr;
 
+        vector<int> v;
+        TreeNode *cur = root;
+        TreeNode *LST = NULL;
+        TreeNode *temp = NULL;
+
+      // run algorithm until root exists
         while (cur)
         {
+            // if left child exists
             if (cur->left)
             {
-                LSTpointer = cur->left; // Catch hold of left child
-                
-                // Go to the rightmost node of the left child
-                while (LSTpointer->right && LSTpointer->right != cur)
-                {
-                    LSTpointer = LSTpointer->right; // Keep going
-                }
+                LST=cur->left; // catch hold of left child
+           
+                while(LST->right) // go to right most node of left child
+                    LST=LST->right;
+        
+            LST->right=cur; // make it point to the root
 
-                if (LSTpointer->right == nullptr)
-                {
-                    LSTpointer->right = cur; // Make rightmost node of left child point to root
-                    cur = cur->left; // Move current to left child for further processing
-                }
-                else
-                {
-                    LSTpointer->right = nullptr; // Remove the temporary link
-                    nodeVals.push_back(cur->val); // Print the node value
-                    cur = cur->right; // Move to right child
-                }
-            }
-            else
-            {
-                nodeVals.push_back(cur->val); // Print the node value
-                cur = cur->right; // Move to right child (because left child doesn't exist)
-            }
+            temp=cur;//so we don't lose the ptr
+            cur=cur->left;//move cur for further iteration
+            temp->left=NULL; // make left of root null
         }
-
-        return nodeVals;
+        else
+        {
+            v.push_back(cur->val); // print the node value
+            cur=cur->right; // move to right child (because left child doesn't exist)
+        }
+    }
+    return v;
     }
 };
