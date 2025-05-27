@@ -22,7 +22,7 @@ class Solution {
                 }
               
                 // If we've completed one loop and the group is at least of length k
-                if (i >= n && count >= k) //to deal with wrap around case we are waiting till we reach i==n
+                if (i >= n && count >= k) //to deal with wrap around case and to make sure we don't count result Twice,  We are waiting till we reach i==n
                 {
                     ++result;  // Increase the alternating groups count
                 }
