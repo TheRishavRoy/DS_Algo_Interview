@@ -20,9 +20,14 @@ public:
 		//after this, while tracing back call stack, we only do the following:
 		
 		head->next->next=head;// 4->5 becomes 5->4 reverses the pointer
-		head->next=nullptr;//we make it null since we no longer need it. It will anyway get assigned a next pointer in the call stack.
+	        //This means ((head->next(5))->next) is now head, i.e. 5->next is now 4.
+	        //That's it.
+		head->next=nullptr;//we make it null since we no longer need it. 
+	        //It will anyway get assigned a next pointer in the call stack.
 		//also the first node will now have ->next as nullptr
+	        //So 4->next is no longer 5, it is nullptr. In next call stack, 3->next is no longer 4, rather 4->next is 3 and 3->next becomes nullptr
+	        //this goes on till 2->next is  1 and 1->next=nullptr;
 		
-		return newHead;
+		return newHead;// Return the same head found in base case, newHead remain the same across recursive calls (Last Node)
     }
 };
