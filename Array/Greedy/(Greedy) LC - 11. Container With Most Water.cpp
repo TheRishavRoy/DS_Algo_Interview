@@ -14,8 +14,8 @@ public:
 			int localWidth=right-left;//cacualte local width
 			maxCollectedWater=max(maxCollectedWater,localHeight*localWidth);
 			
-            //apply greedy method in choosing:
-            if(heights[left]<heights[right])//whichever will be more benificial.
+            		//apply greedy method in choosing:
+            		if(heights[left]<heights[right])//whichever will be more benificial.
 			{
 				++left;//find better left bar
 			}
