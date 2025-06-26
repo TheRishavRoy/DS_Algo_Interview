@@ -23,7 +23,7 @@ public:
             }
             //Tracking minLoss allows us to fix cases where count is odd.
             //If count is even we can just return sum as it is since we can pick both Ui and Vi of the edge
-            //But if count is odd we can't pick all the nodes for XOR operation
+            //But if count is odd we can't pick all the nodes for XOR operation, cuz when we pick an edge we do XOR on 2nodes
             //We have to let one of them go
             //For that we take the minimum of all the XOR sum
             //This values is minLoss
