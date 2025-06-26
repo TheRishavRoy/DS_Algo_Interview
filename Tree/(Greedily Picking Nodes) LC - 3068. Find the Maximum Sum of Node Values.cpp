@@ -7,7 +7,7 @@ public:
 
     long long maximumValueSum(vector<int>& nums, int k, vector<vector<int>>& edges) {
         ll  sum        = 0;
-        int count      = 0;
+        int count      = 0;//count number of times we applied XOR op
         int minLoss = INT_MAX;//the minimum value by XORing a node
 
         for (ll num : nums) 
